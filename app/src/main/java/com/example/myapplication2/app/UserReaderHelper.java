@@ -19,14 +19,15 @@ public class UserReaderHelper extends SQLiteOpenHelper{
 
     private static final String TEXT_TYPE = " TEXT";
     private static final String COMMA_SEP = ",";
-    private static final String SQL_CREATE_QUERY = "CREATE TABLE" +User.COLUMN__USER_NAME+ " ("
+    private static final String SQL_CREATE_QUERY = "CREATE TABLE" +User.TABLE_NAME+ " ("
             +User._ID + " INTEGER PRIMARY KEY , "
             +User.COLUMN__USER_NAME + TEXT_TYPE + COMMA_SEP
             +User.COLUMN__USER_IDENTIFY + TEXT_TYPE + COMMA_SEP
             +User.COLUMN__USER_FLAG + TEXT_TYPE + COMMA_SEP
             +" )";
-
-    private static final String SQL_DELETE_QUERY = " DROP TABLE IF EXISTS "+ User.TABLE_NAME;
+    public static final String SQL_INSERT_QUERY = "INSERT INTO "+User.TABLE_NAME+ " VALUE (?,?,?)";
+    public static  final String SQL_SELECT_QUERY = "SELECT * FROM "+ User.TABLE_NAME;
+    private static final String SQL_DELETE_QUERY = " DROP TABLE IF EXISTS " + User.TABLE_NAME;
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
