@@ -38,6 +38,7 @@ public class UserBusiness {
     public void getUserList()
     {
         Cursor cursor = getCursor();
+
     }
 
     private Cursor getCursor()
