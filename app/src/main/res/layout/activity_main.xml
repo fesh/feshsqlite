@@ -34,11 +34,13 @@
         android:id="@+id/btnAdd"
         android:layout_below="@+id/search_button"
         android:text="add"
+        android:onClick="btnAdd_Click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btnEdit"
-        android:text="edit"
+        android:text="del"
+        android:onClick="btnDel_Click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/btnAdd"

@@ -12,10 +12,12 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity {
 
     private TextView getInput;
+    private UserBusiness userHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        userHelper = new UserBusiness(this);
     }
 
 
@@ -45,5 +47,20 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this,sActivity.class);
         intent.putExtra("input",getInput.getText().toString());
         startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        userHelper.closeDb();
+    }
+
+    public void btnAdd_Click(View view)
+    {
+        userHelper.addUser(new String[]{"fengshaohua","33048219","0"});
+    }
+    public void btnDel_Click(View view)
+    {
+        userHelper.delUser("1");
     }
 }
