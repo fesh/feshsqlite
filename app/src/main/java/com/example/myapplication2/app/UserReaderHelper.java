@@ -23,7 +23,7 @@ public class UserReaderHelper extends SQLiteOpenHelper{
             +User._ID + " INTEGER PRIMARY KEY , "
             +User.COLUMN__USER_NAME + TEXT_TYPE + COMMA_SEP
             +User.COLUMN__USER_IDENTIFY + TEXT_TYPE + COMMA_SEP
-            +User.COLUMN__USER_FLAG + TEXT_TYPE 
+            +User.COLUMN__USER_FLAG + TEXT_TYPE
             +" )";
     public static final String SQL_INSERT_QUERY = "INSERT INTO "+User.TABLE_NAME+ " VALUE (?,?,?)";
     public static  final String SQL_SELECT_QUERY = "SELECT * FROM "+ User.TABLE_NAME;
