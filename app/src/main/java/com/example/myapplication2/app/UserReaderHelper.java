@@ -25,7 +25,7 @@ public class UserReaderHelper extends SQLiteOpenHelper{
             +User.COLUMN__USER_IDENTIFY + TEXT_TYPE + COMMA_SEP
             +User.COLUMN__USER_FLAG + TEXT_TYPE
             +" )";
-    public static final String SQL_INSERT_QUERY = "INSERT INTO "+User.TABLE_NAME+ " VALUE (?,?,?)";
+    public static final String SQL_INSERT_QUERY = "INSERT INTO "+User.TABLE_NAME+ " VALUES (NULL,?,?,?)";
     public static  final String SQL_SELECT_QUERY = "SELECT * FROM "+ User.TABLE_NAME;
     private static final String SQL_DELETE_QUERY = " DROP TABLE IF EXISTS " + User.TABLE_NAME;
 
