@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,9 +36,20 @@ public class UserBusiness {
         db.delete(HouseContract.User.TABLE_NAME, HouseContract.User._ID+" =?",new String[]{id});
     }
 
-    public void getUserList()
+    public List<HouseContract.User> getUserList()
     {
         Cursor cursor = getCursor();
+        ArrayList<HouseContract.User> userlist = new ArrayList<HouseContract.User>();
+        while (cursor.moveToNext())
+        {
+            HouseContract.User user = new HouseContract.User() ;
+            user.setFlag(cursor.getString(cursor.getColumnIndex("flag")));
+            user.setIdentify(cursor.getString(cursor.getColumnIndex("identify")));
+            user.setUsername(cursor.getString(cursor.getColumnIndex("username")));
+            userlist.add(user);
+        }
+        cursor.close();
+        return userlist;
 
     }
 

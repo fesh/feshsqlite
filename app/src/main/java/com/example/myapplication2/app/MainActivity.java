@@ -8,6 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.FormatFlagsConversionMismatchException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -62,5 +68,17 @@ public class MainActivity extends ActionBarActivity {
     public void btnDel_Click(View view)
     {
         userHelper.delUser("1");
+    }
+    public void btnList_Click(View view)
+    {
+        List<HouseContract.User> userList = userHelper.getUserList();
+        ArrayList<Map<String,String>> list = new ArrayList<Map<String, String>>();
+        for(HouseContract.User user :userList){
+            HashMap<String,String> temp = new HashMap<String, String>();
+            temp.put("name",user.getUsername());
+            temp.put("identify",user.getIdentify());
+            list.add(temp);
+        }
+
     }
 }
